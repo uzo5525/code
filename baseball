@@ -1,0 +1,25 @@
+import random
+a = list(range(0, 10))
+n = 0
+num = ''
+for i in range(3):
+    b = random.randrange(0, 10-n)
+    num += str(a[b])
+    a.remove(a[b])
+    n += 1
+print(num)
+
+while True:
+    ans = input('답 입력 : ')
+
+    if ans == num:
+        print('정답')
+        break
+    strike = 0
+    ball = 0
+    for i in range(3):
+        if ans[i] == num[i]:
+            strike += 1
+        elif ans.count(num[i])>0:
+            ball += 1
+    print(f'{strike}S{ball}B')
