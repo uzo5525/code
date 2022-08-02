@@ -1,0 +1,72 @@
+def solution(new_id):
+    answer_1 = new_id.lower()
+    answer_2 = ''
+    answer_3 = ''
+    answer_4 = ''
+    answer_5 = ''
+    answer_6 = ''
+    answer_7 = ''
+
+    # 2
+    for i in range(len(answer_1)):
+        if (answer_1[i] == '-') or (answer_1[i] == '_') or (answer_1[i] == '.') or (answer_1[i] == '-') or (answer_1[i].isdecimal() is True) or (answer_1[i].isalpha() is True):
+            answer_2 += answer_1[i]
+        else:
+          pass
+
+    # 3
+    for i in range(len(answer_2)):
+        # i가 첫번째일 경우
+        if i == 0:
+            if answer_2[0] == '.':
+                    answer_3 += '.'
+        # i가 마지막일 경우
+        if i == len(answer_2) - 1:
+            # i번째가 마침표라면
+            if answer_2[i] == '.':
+                # i-1번째도 마침표라면
+                if answer_2[i-1] == '.':
+                    pass
+                else:
+                    answer_3 += '.'
+            else:
+                answer_3 += answer_2[i]
+        else:
+            if answer_2[i] == '.':
+                if answer_2[i-1] == '.':
+                    pass
+                else:
+                    answer_3 += '.'
+
+            else:
+                answer_3 += answer_2[i]
+
+    # 4
+    answer_4 = answer_3.lstrip('.').rstrip('.')
+
+    # 5
+    if answer_4 == '':
+        answer_5 = 'a'
+    else:
+        answer_5 = answer_4
+
+    # 6
+    if len(answer_5) >= 16:
+        for i in range(15):
+            answer_6 += answer_5[i]
+        answer_6 = answer_6.rstrip('.')
+    else:
+        answer_6 = answer_5
+
+    # 7
+    answer_7 = answer_6
+    if len(answer_6) <= 2:
+        while len(answer_7) <3:
+            answer_7 += answer_6[-1]
+    else:
+        pass
+
+
+
+    return answer_7
+
